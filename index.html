@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UditDeepak Portfolio</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .redirect-container {
+            text-align: center;
+            color: white;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .loading-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .redirect-info {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fuditdeepak6925back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.7"></script>
+</head>
+<body>
+    <div class="redirect-container">
+        <div class="logo">UditDeepak</div>
+        <div class="loading-text">Welcome to my Portfolio</div>
+        <div class="loading-spinner"></div>
+        <div class="redirect-info">Redirecting to 3D Interactive Experience...</div>
+    </div>
+
+    <script>
+        // Redirect to the 3D Interactive Landing Experience page after 2 seconds
+        setTimeout(function() {
+            window.location.href = 'pages/3d_interactive_landing_experience.html';
+        }, 2000);
+        
+        // Optional: Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const redirectInfo = document.querySelector('.redirect-info');
+            
+            // Update loading text dynamically
+            let dots = '';
+            setInterval(function() {
+                dots = dots.length >= 3 ? '' : dots + '.';
+                redirectInfo.textContent = `Redirecting to 3D Interactive Experience${dots}`;
+            }, 500);
+        });
+        
+        // Handle any potential errors
+        window.addEventListener('error', function() {
+            document.querySelector('.loading-text').textContent = 'Loading Portfolio...';
+            document.querySelector('.redirect-info').textContent = 'If not redirected automatically, click here';
+            document.querySelector('.redirect-container').style.cursor = 'pointer';
+            document.querySelector('.redirect-container').onclick = function() {
+                window.location.href = 'pages/3d_interactive_landing_experience.html';
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Galaxy Portfolio - Udit Deepak | Interactive 3D Project Showcase</title>
+    <meta name="description" content="Explore Udit Deepak's project universe - from URACUS AI trading algorithms to gaming innovations, each project exists as an interactive planet in this 3D constellation." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fuditdeepak6925back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.7"></script>
+</head>
+<body class="bg-primary overflow-x-hidden">
+    <!-- 3D Canvas Background -->
+    <canvas id="galaxy-canvas" class="fixed inset-0 z-0"></canvas>
+    
+    <!-- Navigation Overlay -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-primary/20 backdrop-blur-md border-b border-primary-700/30">
+        <div class="container-max px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">UD</span>
+                    </div>
+                    <div class="text-white">
+                        <div class="font-bold text-lg">Udit Deepak</div>
+                        <div class="text-secondary-300 text-sm">Project Galaxy</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="3d_interactive_landing_experience.html" class="text-white hover:text-secondary-300 transition-colors">Home</a>
+                    <a href="ai_innovation_showcase.html" class="text-white hover:text-secondary-300 transition-colors">AI Innovation</a>
+                    <a href="entrepreneurial_journey_timeline.html" class="text-white hover:text-secondary-300 transition-colors">Journey</a>
+                    <a href="project_galaxy_portfolio.html" class="text-accent font-semibold">Projects</a>
+                    <a href="leadership_ecosystem_dashboard.html" class="text-white hover:text-secondary-300 transition-colors">Leadership</a>
+                    <a href="collaboration_gateway.html" class="btn-secondary">Collaborate</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary-900/95 backdrop-blur-lg">
+            <div class="px-6 py-4 space-y-4">
+                <a href="3d_interactive_landing_experience.html" class="block text-white hover:text-secondary-300 transition-colors">Home</a>
+                <a href="ai_innovation_showcase.html" class="block text-white hover:text-secondary-300 transition-colors">AI Innovation</a>
+                <a href="entrepreneurial_journey_timeline.html" class="block text-white hover:text-secondary-300 transition-colors">Journey</a>
+                <a href="project_galaxy_portfolio.html" class="block text-accent font-semibold">Projects</a>
+                <a href="leadership_ecosystem_dashboard.html" class="block text-white hover:text-secondary-300 transition-colors">Leadership</a>
+                <a href="collaboration_gateway.html" class="block text-white hover:text-secondary-300 transition-colors">Collaborate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Galaxy Control Panel -->
+    <div class="fixed top-20 left-6 z-40 bg-primary-800/50 backdrop-blur-lg rounded-2xl p-6 border border-secondary/30 max-w-sm">
+        <div class="space-y-4">
+            <div>
+                <h3 class="text-white font-semibold text-lg mb-3">Galaxy Navigation</h3>
+                <div class="text-secondary-300 text-sm mb-4">Explore projects as interactive planets</div>
+            </div>
+            
+            <!-- Filter Controls -->
+            <div class="space-y-3">
+                <div>
+                    <label class="text-white text-sm font-medium block mb-2">Filter by Technology</label>
+                    <select id="tech-filter" class="w-full bg-primary-700/50 text-white border border-primary-600 rounded-lg px-3 py-2 text-sm">
+                        <option value="all">All Technologies</option>
+                        <option value="ai">AI/Machine Learning</option>
+                        <option value="web">Web Development</option>
+                        <option value="mobile">Mobile Apps</option>
+                        <option value="game">Game Development</option>
+                        <option value="trading">Trading Systems</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="text-white text-sm font-medium block mb-2">Timeline</label>
+                    <select id="timeline-filter" class="w-full bg-primary-700/50 text-white border border-primary-600 rounded-lg px-3 py-2 text-sm">
+                        <option value="all">All Years</option>
+                        <option value="2017-2019">Early Years (2017-2019)</option>
+                        <option value="2020-2022">Growth Phase (2020-2022)</option>
+                        <option value="2023-2025">Current Era (2023-2025)</option>
+                    </select>
+                </div>
+                
+                <button id="reset-filters" class="w-full btn-outline text-sm py-2 border-secondary text-secondary hover:bg-secondary hover:text-white">
+                    Reset Filters
+                </button>
+            </div>
+            
+            <!-- Galaxy Stats -->
+            <div class="border-t border-primary-700/30 pt-4 mt-4">
+                <div class="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                        <div class="text-accent font-bold text-xl">12+</div>
+                        <div class="text-secondary-300 text-xs">Projects</div>
+                    </div>
+                    <div>
+                        <div class="text-secondary font-bold text-xl">8</div>
+                        <div class="text-secondary-300 text-xs">Languages</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="fixed inset-0 z-60 hidden">
+        <div class="absolute inset-0 bg-primary-900/80 backdrop-blur-lg" id="modal-backdrop"></div>
+        <div class="relative z-70 flex items-center justify-center min-h-screen p-6">
+            <div class="bg-primary-800/90 backdrop-blur-lg rounded-2xl border border-secondary/30 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div id="modal-content">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Project Cards (Hidden on Desktop) -->
+    <div id="mobile-projects" class="md:hidden relative z-10 pt-20">
+        <div class="container-max px-6 py-8">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-white mb-4">Project Galaxy</h1>
+                <p class="text-secondary-300">Swipe through my project universe</p>
+            </div>
+            
+            <div class="space-y-6" id="mobile-project-list">
+                <!-- Mobile project cards will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Galaxy Instructions -->
+    <div class="hidden md:block fixed bottom-6 right-6 z-40 bg-primary-800/50 backdrop-blur-lg rounded-xl p-4 border border-secondary/30 max-w-xs">
+        <div class="text-white text-sm">
+            <div class="font-semibold mb-2">Galaxy Controls</div>
+            <div class="space-y-1 text-secondary-300 text-xs">
+                <div>• Click planets to explore projects</div>
+                <div>• Drag to rotate galaxy view</div>
+                <div>• Scroll to zoom in/out</div>
+                <div>• Use filters to find specific projects</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 z-100 bg-primary flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-secondary/30 border-t-secondary rounded-full animate-spin mx-auto mb-4"></div>
+            <div class="text-white font-semibold text-lg">Initializing Galaxy...</div>
+            <div class="text-secondary-300 text-sm mt-2">Loading project constellation</div>
+        </div>
+    </div>
+
+    <script>
+        // Project data structure
+        const projectData = {
+            'uracus-ai': {
+                name: 'URACUS AI',
+                category: 'AI Trading System',
+                year: '2024',
+                tech: ['Python', 'TensorFlow', 'FastAPI', 'PostgreSQL'],
+                description: 'Revolutionary AI trading system achieving 93.76% accuracy through advanced machine learning algorithms and real-time market analysis.',
+                metrics: {
+                    accuracy: '93.76%',
+                    users: '500+',
+                    trades: '10,000+',
+                    roi: '340%'
+                },
+                features: [
+                    'Real-time market analysis',
+                    'Predictive algorithm engine',
+                    'Risk management system',
+                    'Portfolio optimization'
+                ],
+                codeSnippet: `# URACUS AI Core Algorithm
+class TradingPredictor:
+    def __init__(self):
+        self.model = self.load_trained_model()
+        self.accuracy = 0.9376
+    
+    def predict_market_trend(self, market_data):
+        features = self.extract_features(market_data)
+        prediction = self.model.predict(features)
+        confidence = self.calculate_confidence(prediction)
+        return {
+            'trend': prediction,
+            'confidence': confidence,
+            'accuracy': self.accuracy
+        }`,
+                image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3',
+                size: 'large',
+                color: '#00b4ff'
+            },
+            'stocks-btst': {
+                name: 'Stocks BTST',
+                category: 'Trading Platform',
+                year: '2023',
+                tech: ['React', 'Node.js', 'MongoDB', 'WebSocket'],
+                description: 'Buy Today Sell Tomorrow trading platform with automated analysis and recommendation engine for short-term trading strategies.',
+                metrics: {
+                    accuracy: '87.2%',
+                    users: '1,200+',
+                    volume: '₹50L+',
+                    success: '89%'
+                },
+                features: [
+                    'BTST strategy automation',
+                    'Real-time stock screening',
+                    'Risk assessment tools',
+                    'Performance analytics'
+                ],
+                codeSnippet: `// BTST Strategy Engine
+class BTSTAnalyzer {
+    constructor() {
+        this.strategies = new Map();
+        this.successRate = 0.872;
+    }
+    
+    analyzeStock(stockData) {
+        const technicalScore = this.calculateTechnical(stockData);
+        const fundamentalScore = this.calculateFundamental(stockData);
+        const riskScore = this.assessRisk(stockData);
+        
+        return {
+            recommendation: this.generateRecommendation(
+                technicalScore, fundamentalScore, riskScore
+            ),
+            confidence: this.successRate
+        };
+    }
+}`,
+                image: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+                size: 'large',
+                color: '#ffd700'
+            },
+            'uddkrs-platform': {
+                name: 'UDDKRS Platform',
+                category: 'Business Management',
+                year: '2023',
+                tech: ['Vue.js', 'Laravel', 'MySQL', 'AWS'],
+                description: 'Comprehensive business management platform for UDDKRS company operations, client management, and project tracking.',
+                metrics: {
+                    efficiency: '65%',
+                    clients: '50+',
+                    projects: '100+',
+                    uptime: '99.9%'
+                },
+                features: [
+                    'Client relationship management',
+                    'Project tracking system',
+                    'Financial analytics',
+                    'Team collaboration tools'
+                ],
+                codeSnippet: `// UDDKRS Platform Core
+class ProjectManager {
+    constructor() {
+        this.projects = [];
+        this.clients = new Map();
+        this.efficiency = 0.65;
+    }
+    
+    createProject(clientId, projectData) {
+        const project = new Project({
+            ...projectData,
+            clientId,
+            status: 'active',
+            createdAt: new Date()
+        });
+        
+        this.projects.push(project);
+        this.updateClientMetrics(clientId);
+        return project;
+    }
+}`,
+                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop&ixlib=rb-4.0.3',
+                size: 'medium',
+                color: '#10b981'
+            },
+            'game-engine': {
+                name: 'Custom Game Engine',
+                category: 'Game Development',
+                year: '2019',
+                tech: ['C++', 'OpenGL', 'SDL2', 'Lua'],
+                description: 'Built from scratch game engine with physics simulation, rendering pipeline, and scripting support for 2D/3D games.',
+                metrics: {
+                    performance: '60 FPS',
+                    games: '5',
+                    features: '20+',
+                    lines: '15K+'
+                },
+                features: [
+                    '2D/3D rendering pipeline',
+                    'Physics simulation engine',
+                    'Audio system integration',
+                    'Lua scripting support'
+                ],
+                codeSnippet: `// Game Engine Core
+class GameEngine {
+private:
+    Renderer* renderer;
+    PhysicsWorld* physics;
+    AudioManager* audio;
+    
+public:
+    GameEngine() {
+        renderer = new Renderer();
+        physics = new PhysicsWorld();
+        audio = new AudioManager();
+    }
+    
+    void update(float deltaTime) {
+        physics->step(deltaTime);
+        renderer->render();
+        audio->update();
+    }
+};`,
+                image: 'https://images.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg',
+                size: 'medium',
+                color: '#9333ea'
+            },
+            'mobile-rpg': {
+                name: 'Mobile RPG Adventure',
+                category: 'Mobile Game',
+                year: '2020',
+                tech: ['Unity', 'C#', 'SQLite', 'Firebase'],
+                description: 'Fantasy RPG mobile game with turn-based combat, character progression, and multiplayer features.',
+                metrics: {
+                    downloads: '5K+',
+                    rating: '4.2/5',
+                    retention: '45%',
+                    levels: '50+'
+                },
+                features: [
+                    'Turn-based combat system',
+                    'Character progression',
+                    'Multiplayer battles',
+                    'Quest system'
+                ],
+                codeSnippet: `// RPG Combat System
+public class CombatManager : MonoBehaviour {
+    public List<Character> playerTeam;
+    public List<Character> enemyTeam;
+    
+    public void ExecuteTurn(Character attacker, Character target, Skill skill) {
+        float damage = CalculateDamage(attacker, target, skill);
+        target.TakeDamage(damage);
+        
+        if (target.IsDefeated()) {
+            HandleDefeat(target);
+        }
+        
+        CheckBattleEnd();
+    }
+}`,
+                image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3',
+                size: 'small',
+                color: '#f59e0b'
+            },
+            'web-portfolio': {
+                name: 'Interactive Portfolio',
+                category: 'Web Development',
+                year: '2021',
+                tech: ['React', 'Three.js', 'GSAP', 'Tailwind'],
+                description: 'Personal portfolio website with 3D animations, interactive elements, and responsive design.',
+                metrics: {
+                    visitors: '10K+',
+                    bounce: '25%',
+                    speed: '95/100',
+                    mobile: '100%'
+                },
+                features: [
+                    '3D animations with Three.js',
+                    'Responsive design',
+                    'Interactive project showcase',
+                    'Performance optimized'
+                ],
+                codeSnippet: `// 3D Portfolio Animation
+import * as THREE from 'three';
+
+class PortfolioScene {
+    constructor() {
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.renderer = new THREE.WebGLRenderer({ alpha: true });
+    }
+    
+    animate() {
+        requestAnimationFrame(this.animate.bind(this));
+        this.updateObjects();
+        this.renderer.render(this.scene, this.camera);
+    }
+}`,
+                image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3',
+                size: 'small',
+                color: '#06b6d4'
+            }
+        };
+
+        // 3D Galaxy Scene
+        let scene, camera, renderer, planets = [], controls;
+        let mouseX = 0, mouseY = 0;
+        let selectedPlanet = null;
+
+        function initGalaxy() {
+            // Scene setup
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ 
+                canvas: document.getElementById('galaxy-canvas'),
+                alpha: true,
+                antialias: true
+            });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            
+            // Create star field
+            createStarField();
+            
+            // Create project planets
+            createProjectPlanets();
+            
+            // Camera position
+            camera.position.set(0, 0, 15);
+            
+            // Add ambient light
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
+            scene.add(ambientLight);
+            
+            // Add point light
+            const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+            
+            // Animation loop
+            animate();
+            
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.display = 'none';
+            }, 2000);
+        }
+
+        function createStarField() {
+            const starGeometry = new THREE.BufferGeometry();
+            const starCount = 2000;
+            const positions = new Float32Array(starCount * 3);
+            
+            for (let i = 0; i < starCount * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 200;
+                positions[i + 1] = (Math.random() - 0.5) * 200;
+                positions[i + 2] = (Math.random() - 0.5) * 200;
+            }
+            
+            starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            
+            const starMaterial = new THREE.PointsMaterial({
+                color: 0xffffff,
+                size: 1,
+                transparent: true,
+                opacity: 0.8
+            });
+            
+            const stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+        }
+
+        function createProjectPlanets() {
+            const projectKeys = Object.keys(projectData);
+            const radius = 8;
+            
+            projectKeys.forEach((key, index) => {
+                const project = projectData[key];
+                const angle = (index / projectKeys.length) * Math.PI * 2;
+                
+                // Planet size based on project importance
+                let planetSize = 0.5;
+                if (project.size === 'large') planetSize = 1.2;
+                else if (project.size === 'medium') planetSize = 0.8;
+                
+                // Create planet geometry
+                const geometry = new THREE.SphereGeometry(planetSize, 32, 32);
+                const material = new THREE.MeshPhongMaterial({
+                    color: project.color,
+                    transparent: true,
+                    opacity: 0.8
+                });
+                
+                const planet = new THREE.Mesh(geometry, material);
+                
+                // Position planets in orbit
+                planet.position.x = Math.cos(angle) * radius;
+                planet.position.z = Math.sin(angle) * radius;
+                planet.position.y = (Math.random() - 0.5) * 2;
+                
+                // Add glow effect
+                const glowGeometry = new THREE.SphereGeometry(planetSize * 1.2, 32, 32);
+                const glowMaterial = new THREE.MeshBasicMaterial({
+                    color: project.color,
+                    transparent: true,
+                    opacity: 0.2
+                });
+                const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+                planet.add(glow);
+                
+                // Store project data
+                planet.userData = { projectKey: key, project: project };
+                
+                planets.push(planet);
+                scene.add(planet);
+                
+                // Create orbital ring
+                const ringGeometry = new THREE.RingGeometry(radius - 0.1, radius + 0.1, 64);
+                const ringMaterial = new THREE.MeshBasicMaterial({
+                    color: project.color,
+                    transparent: true,
+                    opacity: 0.1,
+                    side: THREE.DoubleSide
+                });
+                const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+                ring.rotation.x = Math.PI / 2;
+                scene.add(ring);
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Rotate planets
+            planets.forEach((planet, index) => {
+                planet.rotation.y += 0.01;
+                
+                // Orbital motion
+                const time = Date.now() * 0.0005;
+                const radius = 8;
+                const angle = (index / planets.length) * Math.PI * 2 + time * 0.1;
+                
+                planet.position.x = Math.cos(angle) * radius;
+                planet.position.z = Math.sin(angle) * radius;
+            });
+            
+            // Camera movement based on mouse
+            camera.position.x += (mouseX * 0.01 - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY * 0.01 - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+            
+            renderer.render(scene, camera);
+        }
+
+        // Mouse interaction
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - window.innerWidth / 2) / 100;
+            mouseY = (event.clientY - window.innerHeight / 2) / 100;
+        });
+
+        // Click detection for planets
+        document.addEventListener('click', (event) => {
+            if (window.innerWidth < 768) return; // Skip on mobile
+            
+            const mouse = new THREE.Vector2();
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera(mouse, camera);
+            
+            const intersects = raycaster.intersectObjects(planets);
+            
+            if (intersects.length > 0) {
+                const clickedPlanet = intersects[0].object;
+                showProjectModal(clickedPlanet.userData.projectKey);
+            }
+        });
+
+        // Project modal functions
+        function showProjectModal(projectKey) {
+            const project = projectData[projectKey];
+            const modal = document.getElementById('project-modal');
+            const content = document.getElementById('modal-content');
+            
+            content.innerHTML = `
+                <div class="p-8">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">${project.name}</h2>
+                            <div class="flex items-center space-x-4 text-sm">
+                                <span class="bg-secondary/20 text-secondary px-3 py-1 rounded-full">${project.category}</span>
+                                <span class="text-secondary-300">${project.year}</span>
+                            </div>
+                        </div>
+                        <button id="close-modal" class="text-secondary-300 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <img src="${project.image}" alt="${project.name}" 
+                                 class="w-full h-48 object-cover rounded-xl mb-6"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            
+                            <p class="text-secondary-300 mb-6">${project.description}</p>
+                            
+                            <div class="mb-6">
+                                <h3 class="text-white font-semibold text-lg mb-3">Key Features</h3>
+                                <ul class="space-y-2">
+                                    ${project.features.map(feature => `
+                                        <li class="flex items-center text-secondary-300">
+                                            <svg class="w-4 h-4 text-accent mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            ${feature}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-white font-semibold text-lg mb-3">Technology Stack</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    ${project.tech.map(tech => `
+                                        <span class="bg-primary-700/50 text-secondary-300 px-3 py-1 rounded-full text-sm">${tech}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="mb-6">
+                                <h3 class="text-white font-semibold text-lg mb-4">Performance Metrics</h3>
+                                <div class="grid grid-cols-2 gap-4">
+                                    ${Object.entries(project.metrics).map(([key, value]) => `
+                                        <div class="bg-primary-700/30 rounded-lg p-4 text-center">
+                                            <div class="text-accent font-bold text-2xl">${value}</div>
+                                            <div class="text-secondary-300 text-sm capitalize">${key}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-white font-semibold text-lg mb-3">Code Sample</h3>
+                                <div class="bg-primary-900/50 rounded-lg p-4 overflow-x-auto">
+                                    <pre><code class="language-javascript text-sm">${project.codeSnippet}</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex space-x-4">
+                                <button class="btn-secondary flex-1">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    View Code
+                                </button>
+                                <button class="btn-outline border-accent text-accent hover:bg-accent hover:text-primary flex-1">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                    Live Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            
+            // Syntax highlighting
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+            
+            // Close modal handlers
+            document.getElementById('close-modal').addEventListener('click', closeProjectModal);
+            document.getElementById('modal-backdrop').addEventListener('click', closeProjectModal);
+        }
+
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+        }
+
+        // Mobile project cards
+        function generateMobileProjects() {
+            const container = document.getElementById('mobile-project-list');
+            
+            Object.entries(projectData).forEach(([key, project]) => {
+                const card = document.createElement('div');
+                card.className = 'bg-primary-800/50 backdrop-blur-lg rounded-2xl border border-secondary/30 overflow-hidden';
+                card.innerHTML = `
+                    <img src="${project.image}" alt="${project.name}" 
+                         class="w-full h-48 object-cover"
+                         onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-white font-bold text-xl">${project.name}</h3>
+                            <span class="bg-secondary/20 text-secondary px-2 py-1 rounded text-sm">${project.year}</span>
+                        </div>
+                        <p class="text-secondary-300 text-sm mb-4">${project.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${project.tech.slice(0, 3).map(tech => `
+                                <span class="bg-primary-700/50 text-secondary-300 px-2 py-1 rounded text-xs">${tech}</span>
+                            `).join('')}
+                        </div>
+                        <button onclick="showProjectModal('${key}')" class="w-full btn-secondary text-sm py-2">
+                            Explore Project
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter functionality
+        function setupFilters() {
+            const techFilter = document.getElementById('tech-filter');
+            const timelineFilter = document.getElementById('timeline-filter');
+            const resetBtn = document.getElementById('reset-filters');
+            
+            techFilter.addEventListener('change', applyFilters);
+            timelineFilter.addEventListener('change', applyFilters);
+            resetBtn.addEventListener('click', resetFilters);
+        }
+
+        function applyFilters() {
+            const techFilter = document.getElementById('tech-filter').value;
+            const timelineFilter = document.getElementById('timeline-filter').value;
+            
+            planets.forEach(planet => {
+                const project = planet.userData.project;
+                let visible = true;
+                
+                // Technology filter
+                if (techFilter !== 'all') {
+                    const techMatch = {
+                        'ai': ['Python', 'TensorFlow', 'Machine Learning'],
+                        'web': ['React', 'Vue.js', 'Node.js', 'Laravel'],
+                        'mobile': ['Unity', 'React Native', 'Flutter'],
+                        'game': ['Unity', 'C++', 'OpenGL'],
+                        'trading': ['Python', 'FastAPI', 'PostgreSQL']
+                    };
+                    
+                    visible = visible && project.tech.some(tech => 
+                        techMatch[techFilter]?.some(filterTech => 
+                            tech.toLowerCase().includes(filterTech.toLowerCase())
+                        )
+                    );
+                }
+                
+                // Timeline filter
+                if (timelineFilter !== 'all') {
+                    const year = parseInt(project.year);
+                    const ranges = {
+                        '2017-2019': [2017, 2019],
+                        '2020-2022': [2020, 2022],
+                        '2023-2025': [2023, 2025]
+                    };
+                    
+                    const [start, end] = ranges[timelineFilter];
+                    visible = visible && year >= start && year <= end;
+                }
+                
+                planet.visible = visible;
+            });
+        }
+
+        function resetFilters() {
+            document.getElementById('tech-filter').value = 'all';
+            document.getElementById('timeline-filter').value = 'all';
+            planets.forEach(planet => {
+                planet.visible = true;
+            });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Window resize handling
+        window.addEventListener('resize', () => {
+            if (camera && renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+        });
+
+        // Initialize everything
+        window.addEventListener('load', () => {
+            if (window.innerWidth >= 768) {
+                initGalaxy();
+            } else {
+                document.getElementById('loading-screen').style.display = 'none';
+                generateMobileProjects();
+            }
+            setupFilters();
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+    </script>
+</body>
+</html>

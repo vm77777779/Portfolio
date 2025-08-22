@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leadership Ecosystem Dashboard - Udit Deepak | Multi-Dimensional Leadership Impact</title>
+    <meta name="description" content="Explore Udit Deepak's leadership ecosystem across UDDKRS, E-CELL, and AIC RNTU with measurable impact metrics, team testimonials, and organizational contributions." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fuditdeepak6925back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.7"></script>
+</head>
+<body class="bg-primary overflow-x-hidden">
+    <!-- 3D Canvas Background -->
+    <canvas id="threejs-canvas" class="fixed inset-0 z-0"></canvas>
+    
+    <!-- Navigation Overlay -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-primary/20 backdrop-blur-md border-b border-primary-700/30">
+        <div class="container-max px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">UD</span>
+                    </div>
+                    <div class="text-white">
+                        <div class="font-bold text-lg">Udit Deepak</div>
+                        <div class="text-secondary-300 text-sm">Leadership Ecosystem</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="3d_interactive_landing_experience.html" class="text-white hover:text-secondary-300 transition-colors">Home</a>
+                    <a href="ai_innovation_showcase.html" class="text-white hover:text-secondary-300 transition-colors">AI Innovation</a>
+                    <a href="entrepreneurial_journey_timeline.html" class="text-white hover:text-secondary-300 transition-colors">Journey</a>
+                    <a href="project_galaxy_portfolio.html" class="text-white hover:text-secondary-300 transition-colors">Projects</a>
+                    <a href="leadership_ecosystem_dashboard.html" class="text-accent font-semibold">Leadership</a>
+                    <a href="collaboration_gateway.html" class="btn-secondary">Collaborate</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary-900/95 backdrop-blur-lg">
+            <div class="px-6 py-4 space-y-4">
+                <a href="3d_interactive_landing_experience.html" class="block text-white hover:text-secondary-300 transition-colors">Home</a>
+                <a href="ai_innovation_showcase.html" class="block text-white hover:text-secondary-300 transition-colors">AI Innovation</a>
+                <a href="entrepreneurial_journey_timeline.html" class="block text-white hover:text-secondary-300 transition-colors">Journey</a>
+                <a href="project_galaxy_portfolio.html" class="block text-white hover:text-secondary-300 transition-colors">Projects</a>
+                <a href="leadership_ecosystem_dashboard.html" class="block text-accent font-semibold">Leadership</a>
+                <a href="collaboration_gateway.html" class="block text-white hover:text-secondary-300 transition-colors">Collaborate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center z-10 pt-20">
+        <div class="container-max px-6 text-center">
+            <div class="space-y-8 fade-in">
+                <div class="space-y-4">
+                    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
+                        Leadership
+                        <span class="text-gradient bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
+                            Ecosystem
+                        </span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-secondary-200 max-w-3xl mx-auto">
+                        Multi-dimensional leadership across UDDKRS, E-CELL, and AIC RNTU with measurable impact and collaborative innovation
+                    </p>
+                </div>
+                
+                <!-- Leadership Overview Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <!-- UDDKRS Leadership -->
+                    <div class="holographic-card group cursor-pointer" data-org="uddkrs">
+                        <div class="bg-primary-800/50 backdrop-blur-lg rounded-2xl p-8 border border-secondary/30 hover:border-accent/50 transition-all duration-500 hover:scale-105">
+                            <div class="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/40 rounded-xl flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H3m2 0h3M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                            <div class="text-white font-bold text-xl mb-2">UDDKRS</div>
+                            <div class="text-secondary-300 text-sm mb-4">Chief Executive Officer</div>
+                            <div class="metric-highlight text-accent mb-2 text-2xl">93.76%</div>
+                            <div class="text-secondary-300 text-sm">Trading Accuracy Achieved</div>
+                        </div>
+                    </div>
+                    
+                    <!-- E-CELL Leadership -->
+                    <div class="holographic-card group cursor-pointer" data-org="ecell">
+                        <div class="bg-primary-800/50 backdrop-blur-lg rounded-2xl p-8 border border-secondary/30 hover:border-accent/50 transition-all duration-500 hover:scale-105">
+                            <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/40 rounded-xl flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div class="text-white font-bold text-xl mb-2">E-CELL</div>
+                            <div class="text-secondary-300 text-sm mb-4">Innovation Lead</div>
+                            <div class="metric-highlight text-accent mb-2 text-2xl">25+</div>
+                            <div class="text-secondary-300 text-sm">Startups Mentored</div>
+                        </div>
+                    </div>
+                    
+                    <!-- AIC RNTU Leadership -->
+                    <div class="holographic-card group cursor-pointer" data-org="aic">
+                        <div class="bg-primary-800/50 backdrop-blur-lg rounded-2xl p-8 border border-secondary/30 hover:border-accent/50 transition-all duration-500 hover:scale-105">
+                            <div class="w-16 h-16 bg-gradient-to-br from-success/20 to-success/40 rounded-xl flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                            <div class="text-white font-bold text-xl mb-2">AIC RNTU</div>
+                            <div class="text-secondary-300 text-sm mb-4">Research Coordinator</div>
+                            <div class="metric-highlight text-accent mb-2 text-2xl">12</div>
+                            <div class="text-secondary-300 text-sm">Innovation Projects</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Org Charts Section -->
+    <section class="relative z-10 py-16 bg-primary-900/50 backdrop-blur-lg">
+        <div class="container-max px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Organizational Impact Structure
+                </h2>
+                <p class="text-secondary-300 text-lg max-w-2xl mx-auto">
+                    Interactive visualization of team structures, collaborative networks, and leadership influence across organizations
+                </p>
+            </div>
+            
+            <!-- Organization Tabs -->
+            <div class="flex flex-wrap justify-center mb-12 space-x-4">
+                <button class="org-tab active bg-secondary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300" data-org="uddkrs">
+                    UDDKRS
+                </button>
+                <button class="org-tab bg-primary-800/50 text-secondary-300 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-700/50" data-org="ecell">
+                    E-CELL
+                </button>
+                <button class="org-tab bg-primary-800/50 text-secondary-300 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-700/50" data-org="aic">
+                    AIC RNTU
+                </button>
+            </div>
+            
+            <!-- UDDKRS Org Chart -->
+            <div id="uddkrs-org" class="org-content">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Org Structure -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-white mb-6">Leadership Structure</h3>
+                        
+                        <!-- CEO Level -->
+                        <div class="text-center mb-8">
+                            <div class="inline-block bg-gradient-to-br from-secondary to-accent rounded-2xl p-6 shadow-xl">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Udit Deepak CEO" class="w-20 h-20 rounded-full object-cover mx-auto mb-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="text-white font-bold text-lg">Udit Deepak</div>
+                                <div class="text-white/80 text-sm">Chief Executive Officer</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Department Heads -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="team-member bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30 hover:border-secondary/50 transition-all duration-300 cursor-pointer">
+                                <img src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="AI Development Lead" class="w-16 h-16 rounded-full object-cover mb-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="text-white font-semibold">Arjun Sharma</div>
+                                <div class="text-secondary-300 text-sm mb-2">AI Development Lead</div>
+                                <div class="text-secondary-300 text-xs">5 team members</div>
+                            </div>
+                            
+                            <div class="team-member bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30 hover:border-secondary/50 transition-all duration-300 cursor-pointer">
+                                <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Trading Systems Head" class="w-16 h-16 rounded-full object-cover mb-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="text-white font-semibold">Priya Patel</div>
+                                <div class="text-secondary-300 text-sm mb-2">Trading Systems Head</div>
+                                <div class="text-secondary-300 text-xs">8 team members</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Impact Metrics -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-white mb-6">Leadership Impact</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-white font-semibold">Team Growth</span>
+                                    <span class="text-accent font-bold">300%</span>
+                                </div>
+                                <div class="w-full bg-primary-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-secondary to-accent h-3 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-white font-semibold">Revenue Growth</span>
+                                    <span class="text-accent font-bold">450%</span>
+                                </div>
+                                <div class="w-full bg-primary-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-secondary to-accent h-3 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-white font-semibold">Client Satisfaction</span>
+                                    <span class="text-accent font-bold">98.5%</span>
+                                </div>
+                                <div class="w-full bg-primary-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-secondary to-accent h-3 rounded-full" style="width: 98.5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Key Achievements -->
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-white mb-4">Key Achievements</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                                    <span class="text-secondary-300">Built URACUS AI achieving 93.76% accuracy</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                                    <span class="text-secondary-300">Scaled team from 3 to 15 members</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                                    <span class="text-secondary-300">Established strategic partnerships</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- E-CELL Org Chart -->
+            <div id="ecell-org" class="org-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Innovation Network -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-white mb-6">Innovation Network</h3>
+                        
+                        <!-- Innovation Lead -->
+                        <div class="text-center mb-8">
+                            <div class="inline-block bg-gradient-to-br from-accent to-secondary rounded-2xl p-6 shadow-xl">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Udit Deepak Innovation Lead" class="w-20 h-20 rounded-full object-cover mx-auto mb-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="text-white font-bold text-lg">Udit Deepak</div>
+                                <div class="text-white/80 text-sm">Innovation Lead</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mentorship Network -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-4 border border-primary-700/30">
+                                <div class="text-white font-semibold text-sm mb-2">Startup Mentoring</div>
+                                <div class="text-accent font-bold text-xl">25+</div>
+                                <div class="text-secondary-300 text-xs">Active Startups</div>
+                            </div>
+                            
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-4 border border-primary-700/30">
+                                <div class="text-white font-semibold text-sm mb-2">Innovation Events</div>
+                                <div class="text-accent font-bold text-xl">15</div>
+                                <div class="text-secondary-300 text-xs">Events Organized</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mentorship Impact -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-white mb-6">Mentorship Impact</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-white font-semibold">Startup Success Rate</span>
+                                    <span class="text-accent font-bold">78%</span>
+                                </div>
+                                <div class="w-full bg-primary-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-accent to-secondary h-3 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-white font-semibold">Funding Secured</span>
+                                    <span class="text-accent font-bold">₹2.5Cr</span>
+                                </div>
+                                <div class="w-full bg-primary-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-accent to-secondary h-3 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Success Stories -->
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-white mb-4">Success Stories</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                                    <span class="text-secondary-300">EcoTech Solutions - ₹50L funding</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                                    <span class="text-secondary-300">HealthAI - Acquired by MedCorp</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                                    <span class="text-secondary-300">FinTech Innovators - Series A</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AIC RNTU Org Chart -->
+            <div id="aic-org" class="org-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Research Structure -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-white mb-6">Research Coordination</h3>
+                        
+                        <!-- Research Coordinator -->
+                        <div class="text-center mb-8">
+                            <div class="inline-block bg-gradient-to-br from-success to-secondary rounded-2xl p-6 shadow-xl">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Udit Deepak Research Coordinator" class="w-20 h-20 rounded-full object-cover mx-auto mb-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="text-white font-bold text-lg">Udit Deepak</div>
+                                <div class="text-white/80 text-sm">Research Coordinator</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Research Teams -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-4 border border-primary-700/30">
+                                <div class="text-white font-semibold text-sm mb-2">AI Research</div>
+                                <div class="text-success font-bold text-xl">8</div>
+                                <div class="text-secondary-300 text-xs">Active Projects</div>
+                            </div>
+                            
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-4 border border-primary-700/30">
+                                <div class="text-white font-semibold text-sm mb-2">Publications</div>
+                                <div class="text-success font-bold text-xl">12</div>
+                                <div class="text-secondary-300 text-xs">Research Papers</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Research Impact -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-white mb-6">Research Impact</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-white font-semibold">Project Completion</span>
+                                    <span class="text-success font-bold">92%</span>
+                                </div>
+                                <div class="w-full bg-primary-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-success to-secondary h-3 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-white font-semibold">Research Grants</span>
+                                    <span class="text-success font-bold">₹15L</span>
+                                </div>
+                                <div class="w-full bg-primary-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-success to-secondary h-3 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Research Highlights -->
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-white mb-4">Research Highlights</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-success rounded-full"></div>
+                                    <span class="text-secondary-300">AI-driven Market Analysis Framework</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-success rounded-full"></div>
+                                    <span class="text-secondary-300">Blockchain Integration for Trading</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-success rounded-full"></div>
+                                    <span class="text-secondary-300">Machine Learning Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Testimonials Section -->
+    <section class="relative z-10 py-16">
+        <div class="container-max px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Team Testimonials
+                </h2>
+                <p class="text-secondary-300 text-lg max-w-2xl mx-auto">
+                    Hear from team members, colleagues, and collaborators about leadership style and impact
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-primary-800/30 backdrop-blur-lg rounded-2xl p-8 border border-primary-700/30 hover:border-secondary/50 transition-all duration-500 hover:scale-105">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Arjun Sharma" class="w-16 h-16 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div>
+                            <div class="text-white font-semibold">Arjun Sharma</div>
+                            <div class="text-secondary-300 text-sm">AI Development Lead, UDDKRS</div>
+                        </div>
+                    </div>
+                    <p class="text-secondary-200 italic mb-4">
+                        "Udit's vision for AI-driven trading solutions is unmatched. His leadership style empowers the team to innovate while maintaining focus on measurable results."
+                    </p>
+                    <div class="flex text-accent">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-primary-800/30 backdrop-blur-lg rounded-2xl p-8 border border-primary-700/30 hover:border-secondary/50 transition-all duration-500 hover:scale-105">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Priya Patel" class="w-16 h-16 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div>
+                            <div class="text-white font-semibold">Dr. Priya Patel</div>
+                            <div class="text-secondary-300 text-sm">Faculty Advisor, AIC RNTU</div>
+                        </div>
+                    </div>
+                    <p class="text-secondary-200 italic mb-4">
+                        "Working with Udit on research projects has been exceptional. His ability to coordinate complex initiatives while mentoring junior researchers is remarkable."
+                    </p>
+                    <div class="flex text-accent">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-primary-800/30 backdrop-blur-lg rounded-2xl p-8 border border-primary-700/30 hover:border-secondary/50 transition-all duration-500 hover:scale-105">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Rahul Singh" class="w-16 h-16 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div>
+                            <div class="text-white font-semibold">Rahul Singh</div>
+                            <div class="text-secondary-300 text-sm">Startup Founder, E-CELL Mentee</div>
+                        </div>
+                    </div>
+                    <p class="text-secondary-200 italic mb-4">
+                        "Udit's mentorship transformed our startup journey. His strategic insights and hands-on guidance helped us secure our first round of funding."
+                    </p>
+                    <div class="flex text-accent">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Timeline Section -->
+    <section class="relative z-10 py-16 bg-primary-900/50 backdrop-blur-lg">
+        <div class="container-max px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Concurrent Leadership Timeline
+                </h2>
+                <p class="text-secondary-300 text-lg max-w-2xl mx-auto">
+                    Balancing multiple leadership roles while maintaining academic excellence and driving innovation
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-secondary to-accent"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    <!-- 2023 -->
+                    <div class="flex items-center justify-between">
+                        <div class="w-5/12 text-right pr-8">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="text-accent font-bold text-lg mb-2">2023</div>
+                                <div class="text-white font-semibold mb-2">Founded UDDKRS</div>
+                                <div class="text-secondary-300 text-sm">Started as CEO while pursuing B.Tech</div>
+                            </div>
+                        </div>
+                        <div class="w-8 h-8 bg-gradient-to-br from-secondary to-accent rounded-full border-4 border-primary flex items-center justify-center z-10">
+                            <div class="w-3 h-3 bg-white rounded-full"></div>
+                        </div>
+                        <div class="w-5/12 pl-8">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="text-accent font-bold text-lg mb-2">Academic Excellence</div>
+                                <div class="text-white font-semibold mb-2">Maintained 8.5+ CGPA</div>
+                                <div class="text-secondary-300 text-sm">While leading startup initiatives</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2024 -->
+                    <div class="flex items-center justify-between">
+                        <div class="w-5/12 text-right pr-8">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="text-accent font-bold text-lg mb-2">E-CELL Leadership</div>
+                                <div class="text-white font-semibold mb-2">Innovation Lead Role</div>
+                                <div class="text-secondary-300 text-sm">Mentoring 25+ startups simultaneously</div>
+                            </div>
+                        </div>
+                        <div class="w-8 h-8 bg-gradient-to-br from-accent to-secondary rounded-full border-4 border-primary flex items-center justify-center z-10">
+                            <div class="w-3 h-3 bg-white rounded-full"></div>
+                        </div>
+                        <div class="w-5/12 pl-8">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="text-accent font-bold text-lg mb-2">2024</div>
+                                <div class="text-white font-semibold mb-2">AIC RNTU Coordinator</div>
+                                <div class="text-secondary-300 text-sm">Leading 12 research projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2025 -->
+                    <div class="flex items-center justify-between">
+                        <div class="w-5/12 text-right pr-8">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="text-accent font-bold text-lg mb-2">2025</div>
+                                <div class="text-white font-semibold mb-2">Multi-Role Excellence</div>
+                                <div class="text-secondary-300 text-sm">CEO + Innovation Lead + Research Coordinator</div>
+                            </div>
+                        </div>
+                        <div class="w-8 h-8 bg-gradient-to-br from-success to-accent rounded-full border-4 border-primary flex items-center justify-center z-10">
+                            <div class="w-3 h-3 bg-white rounded-full"></div>
+                        </div>
+                        <div class="w-5/12 pl-8">
+                            <div class="bg-primary-800/30 backdrop-blur-lg rounded-xl p-6 border border-primary-700/30">
+                                <div class="text-success font-bold text-lg mb-2">Current Impact</div>
+                                <div class="text-white font-semibold mb-2">93.76% Trading Accuracy</div>
+                                <div class="text-secondary-300 text-sm">Leading innovation across all platforms</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Recognition Section -->
+    <section class="relative z-10 py-16">
+        <div class="container-max px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Awards & Recognition
+                </h2>
+                <p class="text-secondary-300 text-lg max-w-2xl mx-auto">
+                    Recognition from organizations and competitive achievements highlighting leadership excellence
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- EO GSEA Award -->
+                <div class="award-card bg-primary-800/30 backdrop-blur-lg rounded-2xl p-8 border border-primary-700/30 hover:border-accent/50 transition-all duration-500 hover:scale-105">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-accent to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                        <div class="text-accent font-bold text-xl mb-2">2nd Position</div>
+                        <div class="text-white font-semibold mb-2">EO GSEA Competition</div>
+                        <div class="text-secondary-300 text-sm">Global Student Entrepreneur Awards</div>
+                    </div>
+                    <div class="text-secondary-200 text-sm text-center">
+                        Recognized among top student entrepreneurs globally for innovative AI trading solutions
+                    </div>
+                </div>
+                
+                <!-- University Excellence -->
+                <div class="award-card bg-primary-800/30 backdrop-blur-lg rounded-2xl p-8 border border-primary-700/30 hover:border-accent/50 transition-all duration-500 hover:scale-105">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-secondary to-success rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <div class="text-secondary font-bold text-xl mb-2">Excellence Award</div>
+                        <div class="text-white font-semibold mb-2">Academic Leadership</div>
+                        <div class="text-secondary-300 text-sm">Jagran Lakecity University</div>
+                    </div>
+                    <div class="text-secondary-200 text-sm text-center">
+                        Outstanding performance in balancing academics with entrepreneurial leadership
+                    </div>
+                </div>
+                
+                <!-- Innovation Recognition -->
+                <div class="award-card bg-primary-800/30 backdrop-blur-lg rounded-2xl p-8 border border-primary-700/30 hover:border-accent/50 transition-all duration-500 hover:scale-105">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-success to-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <div class="text-success font-bold text-xl mb-2">Innovation Leader</div>
+                        <div class="text-white font-semibold mb-2">AIC RNTU Recognition</div>
+                        <div class="text-secondary-300 text-sm">Research Excellence</div>
+                    </div>
+                    <div class="text-secondary-200 text-sm text-center">
+                        Leading researcher in AI applications for financial markets and trading systems
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-primary-900/80 backdrop-blur-lg border-t border-primary-700/30 py-12">
+        <div class="container-max px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">UD</span>
+                        </div>
+                        <div class="text-white font-bold text-xl">Udit Deepak</div>
+                    </div>
+                    <p class="text-secondary-300 mb-4">
+                        Multi-dimensional leadership across organizations with measurable impact and collaborative innovation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-secondary-300 hover:text-secondary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary-300 hover:text-secondary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4">Leadership Roles</h3>
+                    <div class="space-y-2">
+                        <div class="text-secondary-300">CEO - UDDKRS</div>
+                        <div class="text-secondary-300">Innovation Lead - E-CELL</div>
+                        <div class="text-secondary-300">Research Coordinator - AIC RNTU</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="3d_interactive_landing_experience.html" class="block text-secondary-300 hover:text-secondary transition-colors">Home</a>
+                        <a href="ai_innovation_showcase.html" class="block text-secondary-300 hover:text-secondary transition-colors">AI Innovation</a>
+                        <a href="project_galaxy_portfolio.html" class="block text-secondary-300 hover:text-secondary transition-colors">Projects</a>
+                        <a href="collaboration_gateway.html" class="block text-secondary-300 hover:text-secondary transition-colors">Collaborate</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-700/30 mt-8 pt-8 text-center text-secondary-300">
+                <p>&copy; 2025 Udit Deepak. All Rights Reserved. | Leadership Through Innovation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 3D Scene Setup
+        let scene, camera, renderer, particles;
+        let mouseX = 0, mouseY = 0;
+        
+        function init3D() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ 
+                canvas: document.getElementById('threejs-canvas'),
+                alpha: true,
+                antialias: true
+            });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            
+            createParticleSystem();
+            camera.position.z = 5;
+            animate();
+        }
+        
+        function createParticleSystem() {
+            const particleCount = 800;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 20;
+                positions[i + 1] = (Math.random() - 0.5) * 20;
+                positions[i + 2] = (Math.random() - 0.5) * 20;
+                
+                const colorChoice = Math.random();
+                if (colorChoice < 0.4) {
+                    colors[i] = 0.0; colors[i + 1] = 0.7; colors[i + 2] = 1.0; // Blue
+                } else if (colorChoice < 0.7) {
+                    colors[i] = 1.0; colors[i + 1] = 0.84; colors[i + 2] = 0.0; // Gold
+                } else {
+                    colors[i] = 0.0; colors[i + 1] = 0.8; colors[i + 2] = 0.4; // Green
+                }
+            }
+            
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            
+            const material = new THREE.PointsMaterial({
+                size: 2,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.6
+            });
+            
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (particles) {
+                particles.rotation.x += 0.001;
+                particles.rotation.y += 0.002;
+                particles.rotation.x += mouseY * 0.00005;
+                particles.rotation.y += mouseX * 0.00005;
+            }
+            
+            renderer.render(scene, camera);
+        }
+        
+        // Mouse movement tracking
+        document.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX - window.innerWidth / 2;
+            mouseY = event.clientY - window.innerHeight / 2;
+        });
+        
+        // Window resize handling
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // Organization tabs functionality
+        document.querySelectorAll('.org-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.org-tab').forEach(t => {
+                    t.classList.remove('active', 'bg-secondary', 'text-white');
+                    t.classList.add('bg-primary-800/50', 'text-secondary-300');
+                });
+                
+                // Add active class to clicked tab
+                tab.classList.add('active', 'bg-secondary', 'text-white');
+                tab.classList.remove('bg-primary-800/50', 'text-secondary-300');
+                
+                // Hide all org content
+                document.querySelectorAll('.org-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected org content
+                const orgType = tab.getAttribute('data-org');
+                document.getElementById(`${orgType}-org`).classList.remove('hidden');
+            });
+        });
+        
+        // Holographic card interactions
+        document.querySelectorAll('.holographic-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.05) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1) rotateY(0deg)';
+            });
+        });
+        
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Initialize 3D scene when page loads
+        window.addEventListener('load', () => {
+            init3D();
+        });
+        
+        // Performance optimization for mobile
+        if (window.innerWidth < 768) {
+            const particleCount = 400;
+        }
+    </script>
+</body>
+</html>
